@@ -1,0 +1,130 @@
+<div class="container">
+  <h1>Visit Details</h1>
+  
+  <div class="visit-card">
+    <div class="visit-header">
+      <h2><%= @visit.name %>'s Visit</h2>
+      <div class="visit-time">
+        <span class="label">Visited:</span> 
+        <span class="value"><%= @visit.formatted_visit_time %></span>
+      </div>
+    </div>
+    
+    <div class="visit-details">
+      <div class="detail-item">
+        <span class="label">Email:</span>
+        <span class="value"><%= @visit.email %></span>
+      </div>
+      
+      <% if @visit.age.present? %>
+        <div class="detail-item">
+          <span class="label">Age:</span>
+          <span class="value"><%= @visit.age %></span>
+        </div>
+      <% end %>
+      
+      <div class="detail-item">
+        <span class="label">IP Address:</span>
+        <span class="value"><%= @visit.ip_address %></span>
+      </div>
+      
+      <div class="detail-item">
+        <span class="label">Page Visited:</span>
+        <span class="value"><%= @visit.path %></span>
+      </div>
+      
+      <% if @visit.comment.present? %>
+        <div class="detail-item comment">
+          <span class="label">Comment:</span>
+          <div class="value comment-text">
+            <%= @visit.comment %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="links">
+    <%= link_to "Back to All Visits", visits_path %>
+    <%= link_to "Register New Visit", new_visit_path %>
+    <%= link_to "Back to Home", root_path %>
+  </div>
+</div>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .visit-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .visit-header {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .visit-header h2 {
+    margin: 0 0 10px 0;
+    color: #495057;
+  }
+  
+  .visit-time {
+    color: #6c757d;
+    font-style: italic;
+  }
+  
+  .detail-item {
+    margin-bottom: 12px;
+  }
+  
+  .label {
+    font-weight: bold;
+    min-width: 120px;
+    display: inline-block;
+  }
+  
+  .comment {
+    margin-top: 20px;
+  }
+  
+  .comment-text {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    margin-top: 5px;
+    white-space: pre-line;
+  }
+  
+  .links {
+    margin-top: 20px;
+  }
+  
+  .links a {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .links a:hover {
+    background-color: #0056b3;
+  }
+</style>

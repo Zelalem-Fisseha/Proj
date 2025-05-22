@@ -1,0 +1,77 @@
+<div class="container">
+  <h1>Welcome to the Home Page</h1>
+  <p>This is the home page of our application. Navigate to different pages to see the visit counter in action.</p>
+  
+  <div class="cta-section">
+    <h2>Register Your Visit</h2>
+    <p>Fill out our form to register your visit and see validation in action!</p>
+    <%= link_to "Register Now", new_visit_path, class: "cta-button" %>
+  </div>
+  
+  <div class="links">
+    <p><%= link_to "About", about_path %></p>
+    <p><%= link_to "Contact", contact_path %></p>
+    <p><%= link_to "View All Visits", visits_path %></p>
+  </div>
+</div>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .cta-section {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px 0;
+    text-align: center;
+    border: 1px solid #e9ecef;
+  }
+  
+  .cta-section h2 {
+    color: #495057;
+    margin-bottom: 10px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .cta-button:hover {
+    background-color: #218838;
+  }
+  
+  .links {
+    margin-top: 30px;
+  }
+  
+  .links a {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .links a:hover {
+    background-color: #0056b3;
+  }
+</style>

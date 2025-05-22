@@ -1,0 +1,114 @@
+<div class="container">
+  <h1>All Visits</h1>
+  
+  <% if notice %>
+    <div class="notice">
+      <%= notice %>
+    </div>
+  <% end %>
+  
+  <div class="visits-list">
+    <% if @visits.any? %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Visited At</th>
+            <th>Page</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @visits.each do |visit| %>
+            <tr>
+              <td><%= visit.name %></td>
+              <td><%= visit.email %></td>
+              <td><%= visit.age %></td>
+              <td><%= visit.formatted_visit_time %></td>
+              <td><%= visit.path %></td>
+              <td><%= link_to "View Details", visit_path(visit) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="no-visits">No visits recorded yet.</p>
+    <% end %>
+  </div>
+  
+  <div class="links">
+    <%= link_to "Register New Visit", new_visit_path %>
+    <%= link_to "Back to Home", root_path %>
+  </div>
+</div>
+
+<style>
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .notice {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+  
+  .visits-list {
+    margin-bottom: 30px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .no-visits {
+    font-style: italic;
+    color: #6c757d;
+  }
+  
+  .links {
+    margin-top: 20px;
+  }
+  
+  .links a {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .links a:hover {
+    background-color: #0056b3;
+  }
+</style>
